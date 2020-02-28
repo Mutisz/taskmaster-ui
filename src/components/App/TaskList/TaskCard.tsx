@@ -17,6 +17,7 @@ import clsx from "clsx";
 import moment from "moment";
 import React, { FunctionComponent } from "react";
 import { useTimer } from "react-compound-timer";
+import { getTaskCategoryDescription } from "../../../consts/taskCategory";
 import {
   GetTaskListQuery,
   TaskIntervalEndMutation,
@@ -126,7 +127,7 @@ const TaskCard: FunctionComponent<TaskCardProps> = ({ task }) => {
       <Card variant="outlined" className={classes.card}>
         <CardHeader
           title={task.name}
-          subheader="category"
+          subheader={getTaskCategoryDescription(task.category)}
           action={
             <IconButton aria-label="show task actions">
               <MoreVertIcon />

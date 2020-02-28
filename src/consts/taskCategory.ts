@@ -9,3 +9,13 @@ export const taskCategoryOptionList: Array<TaskmasterForm.InputSelectOption> = [
   [TaskCategory.Meeting, "Meeting"],
   [TaskCategory.Other, "Other"]
 ];
+
+export const getTaskCategoryDescription = (
+  taskCategory: TaskCategory
+): string => {
+  const [option] = taskCategoryOptionList.filter(
+    ([filterTaskCategory]) => filterTaskCategory === taskCategory
+  );
+
+  return option[1];
+};
