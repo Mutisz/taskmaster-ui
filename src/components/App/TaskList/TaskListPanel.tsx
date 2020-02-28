@@ -18,7 +18,9 @@ const TaskListPanel: FunctionComponent = () => {
   // Material UI hook
   const classes = useStyles();
 
-  const { data, error, loading } = useGetTaskListQuery();
+  const { data, error, loading } = useGetTaskListQuery({
+    fetchPolicy: "cache-and-network"
+  });
 
   if (loading === true) {
     return <LoadingMask message="Loading..." />;
