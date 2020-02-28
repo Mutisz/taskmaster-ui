@@ -137,7 +137,7 @@ const TaskCard: FunctionComponent<TaskCardProps> = ({ task }) => {
         />
         <CardContent>
           <Typography paragraph>
-            {elapsedTimeMs > 0
+            {timerControls.getTime() > 0
               ? humanizeDuration(timerControls.getTime(), {
                   units: ["h", "m", "s"],
                   round: true
