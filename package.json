@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "UI for Taskmaster, SCRUM task tracking app.",
   "author": "Mateusz Tokarski <coral.software.mt@gmail.com>",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Mutisz/taskmaster-ui.git"
+  },
   "license": "ISC",
   "scripts": {
     "dev": "npm run clean && parcel public/index.html --open",
