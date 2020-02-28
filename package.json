@@ -4,8 +4,8 @@
   "description": "UI for Taskmaster, SCRUM task tracking app.",
   "author": "Mateusz Tokarski <coral.software.mt@gmail.com>",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Mutisz/taskmaster-ui.git"
+    "type": "git",
+    "url": "https://github.com/Mutisz/taskmaster-ui.git"
   },
   "license": "ISC",
   "scripts": {
@@ -33,6 +33,7 @@
     "clsx": "^1.1.0",
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",
+    "humanize-duration": "^3.22.0",
     "moment": "^2.24.0",
     "react": "^16.13.0",
     "react-compound-timer": "^1.1.15",
@@ -48,6 +49,7 @@
     "@graphql-codegen/typescript": "^1.12.2",
     "@graphql-codegen/typescript-operations": "^1.12.2",
     "@graphql-codegen/typescript-react-apollo": "^1.12.2",
+    "@types/humanize-duration": "^3.18.0",
     "@types/moment": "^2.13.0",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",

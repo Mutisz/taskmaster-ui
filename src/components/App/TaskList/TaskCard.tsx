@@ -26,6 +26,7 @@ import {
   useTaskIntervalStartMutation
 } from "../../../generator/output/operations";
 import NotificationError from "../../Notification/ErrorNotification";
+import humanizeDuration from "humanize-duration";
 
 interface TaskCardProps {
   task: GetTaskListQuery["personalTaskList"][0];
@@ -82,11 +83,11 @@ const TaskCard: FunctionComponent<TaskCardProps> = ({ task }) => {
   const classes = useStyles();
 
   // Timer hook
-  const elapsedTimeDuration = moment.duration(task.elapsedTime);
-  const { controls: timerControls, value: timerValue } = useTimer({
+  const elapsedTimeMs = moment.duration(task.elapsedTime).asMilliseconds();
+  const { controls: timerControls } = useTimer({
     startImmediately: task.workInProgress,
     lastUnit: "h",
-    initialTime: elapsedTimeDuration.asMilliseconds()
+    initialTime: elapsedTimeMs
   });
 
   // Task interval mutation hooks
@@ -136,7 +137,12 @@ const TaskCard: FunctionComponent<TaskCardProps> = ({ task }) => {
         />
         <CardContent>
           <Typography paragraph>
-            Elapsed {timerValue.h}:{timerValue.m}:{timerValue.s}
+            {elapsedTimeMs > 0
+              ? humanizeDuration(timerControls.getTime(), {
+                  units: ["h", "m", "s"],
+                  round: true
+                })
+              : "Not worked on"}
           </Typography>
         </CardContent>
         <Divider />
