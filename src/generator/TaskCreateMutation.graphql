@@ -1,0 +1,14 @@
+mutation TaskCreate(
+  $name: String!
+  $description: String!
+  $category: TaskCategory!
+) {
+  taskCreate(name: $name, description: $description, category: $category) {
+    id
+    name
+    description
+    category
+    workInProgress
+    elapsedTime
+  }
+}

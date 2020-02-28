@@ -1,0 +1,6 @@
+mutation TaskIntervalStart($taskId: ID!) {
+  taskIntervalStart(id: $taskId) {
+    id
+    workInProgress
+  }
+}

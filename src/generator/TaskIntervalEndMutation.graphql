@@ -1,0 +1,7 @@
+mutation TaskIntervalEnd($taskId: ID!) {
+  taskIntervalEnd(id: $taskId) {
+    id
+    workInProgress
+    elapsedTime
+  }
+}

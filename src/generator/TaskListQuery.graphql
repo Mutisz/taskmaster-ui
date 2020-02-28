@@ -1,0 +1,10 @@
+query GetTaskList {
+  personalTaskList {
+    id
+    name
+    description
+    category
+    workInProgress
+    elapsedTime
+  }
+}

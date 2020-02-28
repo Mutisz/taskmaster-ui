@@ -1,0 +1,16 @@
+# IDE directory
+.vscode/
+
+# Dependency directories
+node_modules/
+
+# Environments
+.environments/
+.env
+
+# Code generation directories
+src/generator/output/
+
+# Build directories
+.cache/
+dist/
