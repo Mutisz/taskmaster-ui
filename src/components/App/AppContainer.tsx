@@ -39,7 +39,8 @@ const useStyles = makeStyles(theme =>
       }
     },
     content: {
-      gridArea: "main"
+      gridArea: "main",
+      overflowY: "auto"
     }
   })
 );
