@@ -12,7 +12,7 @@ import {
   NormalizedCache,
   NormalizedCachePersistentStorage
 } from "./cache";
-import { GetTokenDocument, GetTokenQuery } from "./generator/output/operations";
+import { TokenDocument, TokenQuery } from "./generator/output/operations";
 
 export type NormalizedCacheClient = ApolloClient<NormalizedCacheObject>;
 
@@ -26,8 +26,8 @@ const logGraphQlError = ({ message, path }: GraphQLError): void =>
   console.error(`[GraphQL error]: Message: ${message}, Path: ${path}`);
 
 const fetchToken = (cache: NormalizedCache): string | undefined => {
-  const tokenQueryResult = cache.readQuery<GetTokenQuery>({
-    query: GetTokenDocument
+  const tokenQueryResult = cache.readQuery<TokenQuery>({
+    query: TokenDocument
   });
 
   return tokenQueryResult?.token;

@@ -14,22 +14,22 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import PauseIcon from "@material-ui/icons/Pause";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import clsx from "clsx";
+import humanizeDuration from "humanize-duration";
 import moment from "moment";
 import React, { FunctionComponent } from "react";
 import { useTimer } from "react-compound-timer";
 import { getTaskCategoryDescription } from "../../../consts/taskCategory";
 import {
-  GetTaskListQuery,
+  PersonalTaskListQuery,
   TaskIntervalEndMutation,
   TaskIntervalStartMutation,
   useTaskIntervalEndMutation,
   useTaskIntervalStartMutation
 } from "../../../generator/output/operations";
 import NotificationError from "../../Notification/ErrorNotification";
-import humanizeDuration from "humanize-duration";
 
 interface TaskCardProps {
-  task: GetTaskListQuery["personalTaskList"][0];
+  task: PersonalTaskListQuery["personalTaskList"][0];
 }
 
 const useStyles = makeStyles(theme =>

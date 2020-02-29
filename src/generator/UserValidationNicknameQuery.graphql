@@ -1,3 +1,0 @@
-query UserValidationNickname($nickname: String!) {
-  userNicknameExists(nickname: $nickname)
-}

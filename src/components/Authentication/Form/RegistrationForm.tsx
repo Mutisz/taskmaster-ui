@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 import { LOGIN_PATH } from "../../../consts/paths";
 import {
   useRegisterMutation,
-  UserValidationEmailDocument,
-  UserValidationEmailQuery,
-  UserValidationEmailQueryVariables,
-  UserValidationNicknameDocument,
-  UserValidationNicknameQuery,
-  UserValidationNicknameQueryVariables
+  UserEmailExistsDocument,
+  UserEmailExistsQuery,
+  UserEmailExistsQueryVariables,
+  UserNicknameExistsDocument,
+  UserNicknameExistsQuery,
+  UserNicknameExistsQueryVariables
 } from "../../../generator/output/operations";
 import { useValidationQuery } from "../../../hooks/useValidationHook";
 import InputTextField from "../../Form/InputTextField";
@@ -68,10 +68,10 @@ const RegistrationForm = (): ReactElement => {
 
   // Custom validation functions
   const validationNickname = useValidationQuery<
-    UserValidationNicknameQuery,
-    UserValidationNicknameQueryVariables
+    UserNicknameExistsQuery,
+    UserNicknameExistsQueryVariables
   >(
-    UserValidationNicknameDocument,
+    UserNicknameExistsDocument,
     data => {
       return { nickname: String(data) };
     },
@@ -82,10 +82,10 @@ const RegistrationForm = (): ReactElement => {
   );
 
   const validationEmail = useValidationQuery<
-    UserValidationEmailQuery,
-    UserValidationEmailQueryVariables
+    UserEmailExistsQuery,
+    UserEmailExistsQueryVariables
   >(
-    UserValidationEmailDocument,
+    UserEmailExistsDocument,
     data => {
       return { email: String(data) };
     },

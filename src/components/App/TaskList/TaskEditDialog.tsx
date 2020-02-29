@@ -11,10 +11,10 @@ import React, { FunctionComponent } from "react";
 import { useForm } from "react-hook-form";
 import { taskCategoryOptionList } from "../../../consts/taskCategory";
 import {
-  GetTaskListDocument,
-  GetTaskListQuery,
-  GetTaskListQueryResult,
-  GetTaskListQueryVariables,
+  PersonalTaskListDocument,
+  PersonalTaskListQuery,
+  PersonalTaskListQueryResult,
+  PersonalTaskListQueryVariables,
   TaskCategory,
   TaskCreateMutation,
   useTaskCreateMutation
@@ -24,7 +24,7 @@ import InputTextField from "../../Form/InputTextField";
 import NotificationError from "../../Notification/ErrorNotification";
 
 interface TaskEditDialogProps {
-  task?: GetTaskListQueryResult;
+  task?: PersonalTaskListQueryResult;
   open: boolean;
   onClose: () => void;
 }
@@ -70,14 +70,14 @@ const updateCacheOnTaskCreate = (
   result: FetchResult<TaskCreateMutation>
 ): void => {
   const cachedQuery = proxy.readQuery<
-    GetTaskListQuery,
-    GetTaskListQueryVariables
+    PersonalTaskListQuery,
+    PersonalTaskListQueryVariables
   >({
-    query: GetTaskListDocument
+    query: PersonalTaskListDocument
   });
   if (cachedQuery && result.data) {
-    proxy.writeQuery<GetTaskListQuery, GetTaskListQueryVariables>({
-      query: GetTaskListDocument,
+    proxy.writeQuery<PersonalTaskListQuery, PersonalTaskListQueryVariables>({
+      query: PersonalTaskListDocument,
       data: {
         ...cachedQuery,
         personalTaskList: [

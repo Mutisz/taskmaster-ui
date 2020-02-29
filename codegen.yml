@@ -1,8 +1,8 @@
 overwrite: true
 schema:
   - "http://localhost:4000"
-  - "src/generator/schema/ClientSchema.graphql"
-documents: "src/generator/*.graphql"
+  - "src/generator/schema/LocalStateSchema.graphql"
+documents: "src/generator/**/*.graphql"
 generates:
   src/generator/output/operations.tsx:
     plugins:

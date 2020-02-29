@@ -1,3 +1,0 @@
-query UserValidationEmail($email: String!) {
-  userEmailExists(email: $email)
-}
