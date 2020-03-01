@@ -51,7 +51,6 @@ const createLinkHttp = (): HttpLink =>
 const createLinkAuth = (cache: NormalizedCache): ApolloLink =>
   setContext((_, { headers }) => {
     const token = fetchToken(cache);
-    console.log(token);
     return {
       headers:
         token !== undefined

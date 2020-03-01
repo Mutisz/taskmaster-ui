@@ -2,7 +2,6 @@ import { Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { FunctionComponent } from "react";
 import { usePersonalTaskListQuery } from "../../../generator/output/operations";
-import LoadingMask from "../../Mask/LoadingMask";
 import TaskListGrid from "./TaskListGrid";
 import TaskListToolbar from "./TaskListToolbar";
 
@@ -23,17 +22,11 @@ const TaskListPanel: FunctionComponent = () => {
     fetchPolicy: "cache-and-network"
   });
 
-  if (loading === true) {
-    return <LoadingMask message="Loading..." />;
-  }
   if (error !== undefined) {
     return <div>Error occured, please try refreshing the page.</div>;
   }
-  if (data === undefined) {
-    throw new Error("Data object not returned from query.");
-  }
 
-  const taskList = data.personalTaskList;
+  const taskList = data?.personalTaskList ?? [];
   taskList.sort((task1, task2) => {
     if (task1.workInProgress && !task2.workInProgress) {
       return -1;
@@ -46,9 +39,9 @@ const TaskListPanel: FunctionComponent = () => {
 
   return (
     <div className={classes.panel}>
-      <TaskListToolbar />
+      <TaskListToolbar loading={loading} />
       <Divider />
-      <TaskListGrid taskList={taskList} />
+      <TaskListGrid loading={loading} taskList={taskList} />
     </div>
   );
 };

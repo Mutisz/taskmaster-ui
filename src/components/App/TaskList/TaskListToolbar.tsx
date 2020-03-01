@@ -3,7 +3,14 @@ import AddIcon from "@material-ui/icons/Add";
 import React, { FunctionComponent, useState } from "react";
 import TaskEditDialog from "./TaskEditDialog";
 
-const TaskListToolbar: FunctionComponent = () => {
+interface TaskListToolbarProps {
+  loading: boolean;
+}
+
+const TaskListToolbar: FunctionComponent<TaskListToolbarProps> = ({
+  loading
+}) => {
+  // Use task dialog open state hook
   const [createTaskDialogOpen, setCreateTaskDialogOpen] = useState<boolean>(
     false
   );
@@ -27,6 +34,7 @@ const TaskListToolbar: FunctionComponent = () => {
         Create
       </Button>
       <TaskEditDialog
+        disabled={loading}
         open={createTaskDialogOpen}
         onClose={closeCreateTaskDialog}
       />

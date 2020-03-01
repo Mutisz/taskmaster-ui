@@ -25,6 +25,7 @@ import NotificationError from "../../Notification/ErrorNotification";
 
 interface TaskEditDialogProps {
   task?: PersonalTaskListQueryResult;
+  disabled: boolean;
   open: boolean;
   onClose: () => void;
 }
@@ -91,6 +92,7 @@ const updateCacheOnTaskCreate = (
 
 const TaskEditDialog: FunctionComponent<TaskEditDialogProps> = ({
   task,
+  disabled,
   open,
   onClose
 }) => {
@@ -165,7 +167,12 @@ const TaskEditDialog: FunctionComponent<TaskEditDialogProps> = ({
             <Button onClick={onClose} color="primary">
               Close
             </Button>
-            <Button type="submit" variant="contained" color="primary">
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              disabled={disabled}
+            >
               Create
             </Button>
           </DialogActions>
